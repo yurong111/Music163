@@ -1,0 +1,44 @@
+@import "../theme.less";
+
+.header-box {
+  color: @c-primary;
+
+  .title {
+    text-align: right;
+    font-size: 20px;
+    margin: 30px 10px 20px 0;
+  }
+
+  .ant-menu-horizontal {
+
+    & > .ant-menu-item,
+    & > .ant-menu-submenu {
+      float: right;
+      font-size: 14px;
+    }
+  }
+
+
+  .ant-menu-horizontal > .ant-menu-item:hover,
+  .ant-menu-horizontal > .ant-menu-submenu:hover,
+  .ant-menu-horizontal > .ant-menu-item-active,
+  .ant-menu-horizontal > .ant-menu-submenu-active,
+  .ant-menu-horizontal > .ant-menu-item-open,
+  .ant-menu-horizontal > .ant-menu-submenu-open,
+  .ant-menu-horizontal > .ant-menu-item-selected,
+  .ant-menu-horizontal > .ant-menu-submenu-selected {
+    color: @c-purple;
+    border-bottom: 2px solid @c-purple;
+  }
+
+  .ant-menu-item:hover,
+  .ant-menu-item-active,
+  .ant-menu:not(.ant-menu-inline) .ant-menu-submenu-open,
+  .ant-menu-submenu-active, .ant-menu-submenu-title:hover,
+
+  .ant-menu-horizontal > .ant-menu-item > a:hover,
+  .ant-menu-horizontal > .ant-menu-submenu > a:hover{
+    color: @c-purple;
+  }
+
+}
