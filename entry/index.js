@@ -2,11 +2,24 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {BrowserRouter, Route, Link } from 'react-router-dom'
-import {createStore} from 'redux';
+import {createStore, applyMiddleware, compose} from 'redux';
 import {Provider} from 'react-redux';
+import thunk from 'redux-thunk';
 
-import toduReducer from '../store/reducer.jsx'
-let store = createStore(toduReducer);
+require('babel-polyfill');
+
+const middleware = [thunk];
+import toduReducer from '../store/reducer.jsx';
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
+const store = createStore(toduReducer, /* preloadedState, */ composeEnhancers(
+    applyMiddleware(...middleware)
+));
+
+/*let store = createStore(
+    toduReducer,
+    compose(middleware, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
+);*/
 
 import Home from 'bundle-loader?lazy&name=app-[name]!../view/Home'
 import Header from '../component/Header'
