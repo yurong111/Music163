@@ -5,22 +5,29 @@
 
   .c-img {
     background-size: cover;
+    background-position: center;
     width: 130px;
     height: 130px;
   }
 
   .c-word {
     text-align: right;
-    font-size: 14px;
+    font-size: 13px;
     color: @c-primary;
+    width: 130px;
   }
 
-  .ant-card {
-    margin-top: 20px;
+  .card {
+    display: inline-block;
+    margin-left: 20px;
 
     &:nth-child(5n+1) {
       margin-left: 0;
     }
+  }
+
+  .ant-card {
+    margin-top: 20px;
 
     &:nth-child(1),
     &:nth-child(2),
