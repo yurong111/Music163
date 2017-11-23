@@ -1,0 +1,43 @@
+@import "../../component/theme.less";
+
+.artist-box {
+
+  .p1 {
+    height: 300px;
+    box-sizing: border-box;
+    margin-top: 20px;
+
+    .l {
+      display: inline-block;
+      vertical-align: top;
+      width: 40%;
+      height: 100%;
+      color: @c-primary;
+
+      div {
+        &:nth-child(1) {
+          margin-bottom: 20px;
+          font-size: 18px;
+        }
+
+        &:nth-child(2) {
+          box-sizing: border-box;
+          height: 210px;
+          overflow: auto;
+          font-size: 14px;
+          margin-right: 50px;
+        }
+      }
+    }
+    }
+
+    .r {
+      display: inline-block;
+      width: 60%;
+      height: 100%;
+
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+  }

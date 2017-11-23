@@ -1,5 +1,5 @@
 import React, {PropTypes, Component} from 'react';
-import {Route} from 'react-router-dom'
+import {Route, withRouter,Link, Switch} from 'react-router-dom'
 import {Form, Card} from 'antd';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
@@ -15,6 +15,13 @@ import {searchAction} from '../../../store/module/Home/action'
 // import Artist from 'bundle-loader?lazy&name=app-[name]!../../Artist'
 
 const FormItem = Form.Item;
+
+
+/*const ArtistContainer = (props) => (
+    <Bundle load={Artist}>
+        {(Comm) => <Comm {...props}/>}
+    </Bundle>
+)*/
 
 
 class Index extends Component {
@@ -37,8 +44,9 @@ class Index extends Component {
 
     }
 
-    getArtistById = () => {
-        
+    getArtistById = (id) => {
+        console.log('id', id, this.props);
+        this.props.history.push(`/artist/${id}`)
     }
 
     render() {
@@ -75,8 +83,11 @@ class Index extends Component {
                         })
                     }
                 </div>
+{/*
+                <Switch>
+                    <Route path="/artist" component={Artist}/>
+                </Switch>*/}
 
-                {/*<Route path="/" component={HomeContainer}/>*/}
             </div>
         )
     }
@@ -85,7 +96,7 @@ class Index extends Component {
 function mapStateToProps(state) {
     let {home} = state;
     return {
-        artists: home.data
+        artists: home.searchResult
     };
 }
 
@@ -95,5 +106,5 @@ function mapDispatchToProps(dispatch) {
     }
 }
 
-export default connect(mapStateToProps)(Form.create({})(Index));
+export default withRouter(connect(mapStateToProps)(Form.create({})(Index)));
 // export default connect(mapStateToProps, mapDispatchToProps)(Form.create({})(Index));

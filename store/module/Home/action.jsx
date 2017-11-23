@@ -34,7 +34,7 @@ export function getArtistByIdAction(id) {
 
         const request = axios({
             method: 'GET',
-            url: `localhost:3000/artists`,
+            url: `http://localhost:3000/artists`,
             params: {
                 id,
             }
