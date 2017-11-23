@@ -3,9 +3,10 @@ import {Form, Carousel} from 'antd';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import './index.less'
-import img1 from './images/01.png';
-import img2 from './images/03.png';
-import img3 from './images/08.png';
+import img1 from './images/1.png';
+import img2 from './images/2.png';
+import img3 from './images/3.png';
+import img4 from './images/4.png';
 
 const FormItem = Form.Item;
 
@@ -26,7 +27,7 @@ class Index extends Component {
 
 
     render() {
-        let imgs = [img1, img2, img3];
+        let imgs = [img1, img2, img3, img4];
 
         return (
             <div className="banner-box">
