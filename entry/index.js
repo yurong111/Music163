@@ -22,8 +22,9 @@ const store = createStore(toduReducer, /* preloadedState, */ composeEnhancers(
 );*/
 
 /*按需加载*/
-import Home from 'bundle-loader?lazy&name=app-[name]!../view/Home'
-import Artist from 'bundle-loader?lazy&name=app-[name]!../view/Artist'
+import Home from 'bundle-loader?lazy&name=app-Home!../view/Home'
+import Artist from 'bundle-loader?lazy&name=app-Artist!../view/Artist'
+// const Artist = () => import('../view/Artist')
 import Header from '../component/Header'
 
 import Bundle from '../component/Bundle/index'

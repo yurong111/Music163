@@ -28,7 +28,28 @@
           margin-right: 50px;
         }
       }
-    }
+
+      /*播放、暂停icon*/
+      .icon() {
+        font-size: 24px;
+        display: inline-block;
+        vertical-align: middle;
+        margin-left: 10px;
+      }
+
+      .play {
+        &:after {
+          content: '\e692';
+          .icon()
+        }
+
+      }
+      .pause {
+        &:after {
+          content: '\e608';
+          .icon()
+        }
+      }
     }
 
     .r {
@@ -41,3 +62,52 @@
       background-repeat: no-repeat;
     }
   }
+
+  .p2 {
+    .ant-row {
+      font-size: 14px;
+      color: @c-primary;
+      border-bottom: 1px solid #f4f4f4;
+
+      .col {
+        display: inline-block;
+        width: 50%;
+        line-height: 50px;
+        padding: 0 20px;
+        cursor: pointer;
+
+
+        .rotate {
+          display: inline-block;
+          animation: rotateFrames 5s linear infinite;
+          color: @c-purple;
+
+          @keyframes rotateFrames {
+            from {
+              transform: rotate(0deg)
+            }
+            to {
+              transform: rotate(360deg)
+            }
+          }
+        }
+
+        .iconfont {
+          font-size: 20px;
+          margin-right: 5px;
+          vertical-align: middle;
+        }
+
+        div {
+          display: inline-block;
+          vertical-align: middle;
+        }
+
+        &:hover {
+          background: rgba(red(@c-primary), green(@c-primary), blue(@c-primary), .2);
+          color: @c-purple;
+        }
+      }
+    }
+  }
+}
