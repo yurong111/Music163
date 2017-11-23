@@ -34,7 +34,7 @@ class Index extends Component {
 
 
     componentWillMount() {
-        let artists = ['艾薇儿', '周杰伦', '理查德.克莱德曼', '久石譲', '赵海洋'];
+        let artists = ['艾薇儿', '郎朗', '理查德.克莱德曼', '久石譲', '赵海洋', '王羽佳', '马克西姆', '李云迪', '海因里希·席夫', '林赛.斯特林'];//海因里希·席夫
         artists.map((item)=> {
             this.props.dispatch(searchAction(item));
         })
@@ -50,13 +50,6 @@ class Index extends Component {
     }
 
     render() {
-        let list = [
-            {name: 'Avril Lavigne', src: img5},
-            {name: '理查德 克莱德曼', src: img3},
-            {name: '久石让', src: img1},
-            {name: '赵海洋', src: img2},
-            {name: '周杰伦', src: img4},
-        ]
         let {artists} = this.props;
 
         return (
