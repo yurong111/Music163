@@ -1,5 +1,5 @@
 import React, {PropTypes, Component} from 'react';
-import {Form, Button, Row, Col} from 'antd';
+import {Form, Button, Row, Col, Tooltip} from 'antd';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import {getArtistByIdAction, getMusicAction} from '../../store/module/Home/action';
@@ -35,7 +35,7 @@ class Index extends Component {
 
     componentWillUnmount() {
         console.log('componentWillUnMount');
-        this.audio.pause();
+        this.audio && this.audio.pause();
     }
 
     /**
@@ -51,11 +51,14 @@ class Index extends Component {
             nextIndex: 0,
         }, () => {
 
-            setInterval(()=>{
+            this.listenEnd(()=>{
+                this.playAllOne();
+            })
+            /*setInterval(()=>{
                 if (!this.audio || this.audio.ended) {
                     this.playAllOne();
                 }
-            }, 200);
+            }, 200);*/
         })
     }
 
@@ -105,7 +108,20 @@ class Index extends Component {
             this.handlePause();
         }else {
             this.handlePlay(id);        //播放
+            this.listenEnd(()=>{
+                this.setState({
+                    playId: null,
+                })
+            })
         }
+    }
+
+    listenEnd = (callback) => {
+        setInterval(()=>{
+            if (!this.audio || this.audio.ended) {
+                callback();
+            }
+        }, 200);
     }
 
     /**
@@ -129,15 +145,19 @@ class Index extends Component {
 
             list.push(
                 <Row key={i}>
-                    <Col className="col" onClick={this.play.bind(this, hotSongs[i].id)}>
-                        <i className={`${playId == hotSongs[i].id ? 'rotate': ''} iconfont icon-yinyue`}></i>
-                        <div>{hotSongs[i].name}</div>
-                    </Col>
+                    <Tooltip title={hotSongs[i].name} mouseEnterDelay={1}>
+                        <Col className="col" onClick={this.play.bind(this, hotSongs[i].id)}>
+                            <i className={`${playId == hotSongs[i].id ? 'rotate': ''} iconfont icon-yinyue`}></i>
+                            <div>{hotSongs[i].name}</div>
+                        </Col>
+                    </Tooltip>
 
-                    <Col className="col" onClick={this.play.bind(this, hotSongs[i+1].id)}>
-                        <i className={`${playId == hotSongs[i+1].id ? 'rotate': ''} iconfont icon-yinyue`}></i>
-                        <div>{hotSongs[i+1].name}</div>
-                    </Col>
+                    <Tooltip title={hotSongs[i+1].name} mouseEnterDelay={1}>
+                        <Col className="col" onClick={this.play.bind(this, hotSongs[i+1].id)}>
+                            <i className={`${playId == hotSongs[i+1].id ? 'rotate': ''} iconfont icon-yinyue`}></i>
+                            <div>{hotSongs[i+1].name}</div>
+                        </Col>
+                    </Tooltip>
                 </Row>
             )
         }
