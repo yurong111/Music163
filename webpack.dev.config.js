@@ -1,5 +1,8 @@
 const path = require('path');
+const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+// 引入env配置文件
+const defineConfig = require('./config/config.env.jsx');
 
 module.exports = {
 
@@ -18,6 +21,9 @@ module.exports = {
         new HtmlWebpackPlugin({
             title: 'react-redux-routes-antd',
             template: './entry/index.ejs'
+        }),
+        new webpack.DefinePlugin({
+            DATAHOST: defineConfig.DATAHOST
         })
     ],
 
