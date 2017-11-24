@@ -36,9 +36,9 @@ class Index extends Component {
         let menuList = [
             {key: 'new', name: '新碟上架', url: '/new'},
             {key: 'singer', name: '歌手', url: '/singer'},
-            {key: 'radio', name: '主播电台', url: '/radio'},
             {key: 'list', name: '歌单', url: '/list'},
             {key: 'sort', name: '排行榜', url: '/sort'},
+            {key: 'me', name: 'MINI', url: '/me'},
             {key: 'home', name: '首页', url: '/'},
         ]
 
