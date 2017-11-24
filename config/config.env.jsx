@@ -1,3 +1,3 @@
 module.exports = {
-    "DATAHOST": "127.0.0.1",
+    "DATAHOST": "'http://localhost:3000'",
 }

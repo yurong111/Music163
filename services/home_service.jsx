@@ -1,10 +1,12 @@
 import axios from 'axios';
 
 export function searchApi(dispatch, params) {
-    get(dispatch, 'http://localhost:3000/search', 'SEARCH', params);
+    let url = DATAHOST+'/search';
+    get(dispatch, url, 'SEARCH', params);
 }
 export function getArtistByIdApi(dispatch, params) {
-    get(dispatch, 'http://localhost:3000/artists', 'GET_ARTIST_BY_ID', params);
+    let url = DATAHOST+'/artists';
+    get(dispatch, url, 'GET_ARTIST_BY_ID', params);
 }
 
 function get(dispatch, url, type, params) {
