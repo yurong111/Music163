@@ -23,7 +23,7 @@ module.exports = {
             template: './entry/index.ejs'
         }),
         new webpack.DefinePlugin({
-            DATAHOST: defineConfig.DATAHOST
+            DATAHOST: JSON.stringify(defineConfig.DATAHOST)
         })
     ],
 

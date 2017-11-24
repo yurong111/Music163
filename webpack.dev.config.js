@@ -22,8 +22,8 @@ module.exports = {
             title: 'react-redux-routes-antd',
             template: './entry/index.ejs'
         }),
-        new webpack.DefinePlugin({
-            DATAHOST: defineConfig.DATAHOST
+        new webpack.DefinePlugin({  /*配置全局变量*/
+            DATAHOST: JSON.stringify(defineConfig.DATAHOST)
         })
     ],
 
