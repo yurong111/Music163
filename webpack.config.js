@@ -14,7 +14,7 @@ module.exports = {
         path: path.resolve(__dirname, './build'),
         filename: '[name].bundle.js', // 推荐使用
         chunkFilename: '[name]-[id].bundle.js', // 代码分割
-        publicPath: '/build',        /*没有配置这个的话，子路由访问会出错*/
+        publicPath: '/',        /*没有配置这个的话，子路由访问会出错*/
     },
 
     plugins: [
