@@ -33,6 +33,7 @@
     "react-router-dom": "^4.1.1",
     "redux": "^3.7.2",
     "redux-devtools": "^3.4.1",
+    "redux-logger": "^3.0.6",
     "redux-thunk": "^2.2.0",
     "style-loader": "^0.17.0",
     "url-loader": "^0.6.2",

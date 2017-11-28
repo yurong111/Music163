@@ -5,10 +5,12 @@ import {BrowserRouter, Route, Link } from 'react-router-dom'
 import {createStore, applyMiddleware, compose} from 'redux';
 import {Provider} from 'react-redux';
 import thunk from 'redux-thunk';
+import logger from 'redux-logger';
+import apiMiddlewares from '../store/middlewares/apiMiddlewares'
 import "babel-polyfill";
 // require('babel-polyfill');
 
-const middleware = [thunk];
+const middleware = [thunk, apiMiddlewares];
 import toduReducer from '../store/reducer.jsx';
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;    /*redux在浏览器查看*/
 
