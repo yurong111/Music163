@@ -1,5 +1,3 @@
-// const axios = require('axios');
-import axios from 'axios';
 
 import {
     searchApi,
@@ -10,7 +8,9 @@ import {
 export function searchAction(keywords, type=100) {//歌手
     return {
         type: 'SEARCH',
-        payload: {promise: searchApi({keywords, type})},
+        payload: {
+            promise: searchApi({keywords, type})
+        },
     }
 }
 
@@ -18,7 +18,9 @@ export function searchAction(keywords, type=100) {//歌手
 export function getArtistByIdAction(id) {
     return {
         type: 'GET_ARTIST_BY_ID',
-        payload: {promise: getArtistByIdApi({id})},
+        payload: {
+            promise: getArtistByIdApi({id})
+        },
     }
 }
 

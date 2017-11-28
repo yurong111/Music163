@@ -18,7 +18,8 @@ export default function apiMiddlewares(store) {
             ...!!meta ? {meta} : {}
         });
 
-        action.payload.promise =  action.payload.promise.then(
+        // action.payload.promise =  action.payload.promise.then(
+        action.payload.promise.then(
             response => {
                 return dispatch({
                     type: `${type}_SUCCESS`,

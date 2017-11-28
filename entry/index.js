@@ -10,7 +10,7 @@ import apiMiddlewares from '../store/middlewares/apiMiddlewares'
 import "babel-polyfill";
 // require('babel-polyfill');
 
-const middleware = [thunk, apiMiddlewares];
+const middleware = [apiMiddlewares];
 import toduReducer from '../store/reducer.jsx';
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;    /*redux在浏览器查看*/
 
